@@ -47,10 +47,10 @@
 	</div>
 	<div>
 		<div class="grid grid-flow-col gap-7 text-4xl m-auto">
-			<a href="https://www.facebook.com/leydikuafor28" target="_blank" rel="noreferrer"
+			<a href="fb://profile/leydikuafor28" target="_blank" rel="noreferrer"
 				><i class="fa fa-facebook cursor-pointer" aria-hidden="true" /></a
 			>
-			<a href="https://instagram.com/leydikuafor28" target="_blank" rel="noreferrer"
+			<a href="http://instagram.com/_u/leydikuafor28/" target="_blank" rel="noreferrer"
 				><i class="fa fa-instagram cursor-pointer" aria-hidden="true" /></a
 			>
 			<a href="whatsapp://send?phone=905426873959" target="_blank" rel="noreferrer"
