@@ -1,4 +1,4 @@
-<div class="p-10 flex flex-col justify-center items-center">
+<div class="lg:p-10 py-5 flex flex-col justify-center items-center">
 	<div class="text-xl py-5">İletişim Adreslerimiz</div>
 	<div class="grid grid-cols-2 gap-2 border rounded-xl p-5">
 		<div>GSM</div>
@@ -16,8 +16,8 @@
 </div>
 
 <main class="grid lg:grid-cols-4 lg:gap-1 gap-4">
-	<img class="h-full aspect-auto hover:opacity-70" src="/images/dukkan.jpg" alt="Ombre" />
-	<img class="h-full aspect-auto hover:opacity-70" src="/images/dukkan2.jpg" alt="Ombre" />
-	<img class="h-full aspect-auto hover:opacity-70" src="/images/dukkan3.jpg" alt="Ombre" />
-	<img class="h-full aspect-auto hover:opacity-70" src="/images/dukkan4.jpg" alt="Ombre" />
+	<img class="h-full w-full aspect-auto hover:opacity-70" src="/images/dukkan.jpg" alt="Ombre" />
+	<img class="h-full w-full aspect-auto hover:opacity-70" src="/images/dukkan2.jpg" alt="Ombre" />
+	<img class="h-full w-full aspect-auto hover:opacity-70" src="/images/dukkan3.jpg" alt="Ombre" />
+	<img class="h-full w-full aspect-auto hover:opacity-70" src="/images/dukkan4.jpg" alt="Ombre" />
 </main>

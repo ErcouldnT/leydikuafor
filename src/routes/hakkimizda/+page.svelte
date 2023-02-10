@@ -1,6 +1,6 @@
 <main>
-	<div class="grid lg:grid-cols-2 p-10">
-		<div class="m-auto p-10">
+	<div class="grid lg:grid-cols-2 lg:p-10">
+		<div class="m-auto py-5 px-2 lg:p-10">
 			<div class="text-2xl font-bold pb-5">Kazım Cömert Kimdir?</div>
 			<div class="border rounded-xl p-5">
 				<p class="text-justify">
@@ -21,8 +21,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="m-auto">
-			<img class="rounded-xl max-w-lg" src="/images/gelin2.jpg" alt="" />
+		<div class="lg:m-auto lg:order-last order-first my-5">
+			<img class="lg:rounded-xl lg:max-w-lg" src="/images/gelin2.jpg" alt="" />
 		</div>
 	</div>
 </main>

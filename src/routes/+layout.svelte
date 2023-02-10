@@ -47,7 +47,7 @@
 	</div>
 	<div>
 		<div class="grid grid-flow-col gap-7 text-4xl m-auto">
-			<a href="fb://profile/leydikuafor28" target="_blank" rel="noreferrer"
+			<a href="fb://profile/100054571174890" target="_blank" rel="noreferrer"
 				><i class="fa fa-facebook cursor-pointer" aria-hidden="true" /></a
 			>
 			<a href="http://instagram.com/_u/leydikuafor28/" target="_blank" rel="noreferrer"
