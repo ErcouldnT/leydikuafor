@@ -1,9 +1,9 @@
 <script>
 </script>
 
-<svelte:head>
-	<title>Leydi Kuaför | Özel İlgiyi Hak Ediyorsunuz</title>
-	<meta name="description" content="Leydi Kuaför | Özel İlgiyi Hak Ediyorsunuz" />
-</svelte:head>
-
-<div>Leydi Kuaför</div>
+<main class="grid grid-cols-4 gap-1">
+	<img class="h-full aspect-auto hover:opacity-70" src="/images/sombre.jpg" alt="Ombre" />
+	<img class="h-full aspect-auto hover:opacity-70" src="/images/gelin4.jpg" alt="Ombre" />
+	<img class="h-full aspect-auto hover:opacity-70" src="/images/ombre.jpg" alt="Ombre" />
+	<img class="h-full aspect-auto hover:opacity-70" src="/images/ombre3.JPG" alt="Ombre" />
+</main>
