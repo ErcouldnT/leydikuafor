@@ -1,5 +1,5 @@
 <main>
-	<div class="grid grid-cols-2 p-10">
+	<div class="grid lg:grid-cols-2 p-10">
 		<div class="m-auto p-10">
 			<div class="text-2xl font-bold pb-5">Kazım Cömert Kimdir?</div>
 			<div class="border rounded-xl p-5">

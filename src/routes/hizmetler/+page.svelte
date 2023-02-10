@@ -7,8 +7,8 @@
 <main>
 	<div class="grid grid-cols-1 gap-10 p-10">
 		{#each hizmetler as hizmet}
-			<div class="grid grid-cols-2 m-auto items-center">
-				<div class="px-20 {hizmet.fotoYön === 'sağ' && 'order-last'}">
+			<div class="grid lg:grid-cols-2 m-auto items-center gap-5">
+				<div class="px-20 {hizmet.fotoYön === 'sağ' && 'lg:order-last'} order-first">
 					<img class="rounded-xl max-w-lg" src={hizmet.foto} alt="Foto" />
 				</div>
 				<div class="m-auto">

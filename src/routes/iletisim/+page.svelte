@@ -15,7 +15,7 @@
 	</div>
 </div>
 
-<main class="grid grid-cols-4 gap-1">
+<main class="grid lg:grid-cols-4 lg:gap-1 gap-4">
 	<img class="h-full aspect-auto hover:opacity-70" src="/images/dukkan.jpg" alt="Ombre" />
 	<img class="h-full aspect-auto hover:opacity-70" src="/images/dukkan2.jpg" alt="Ombre" />
 	<img class="h-full aspect-auto hover:opacity-70" src="/images/dukkan3.jpg" alt="Ombre" />

@@ -8,7 +8,7 @@
 </svelte:head>
 
 <header class="p-10">
-	<div class="flex flex-row justify-center items-center gap-10">
+	<div class="flex lg:flex-row flex-col justify-center items-center gap-10">
 		<div class="flex justify-center items-center gap-2">
 			<div>
 				<!-- lg:-ml-40 -->
@@ -19,7 +19,7 @@
 			</div>
 			<!-- <i class="text-2xl fa fa-scissors" aria-hidden="true" /> -->
 		</div>
-		<div class="flex flex-row gap-10">
+		<div class="flex flex-wrap gap-5 lg:gap-10 justify-center items-center">
 			<a href="/hizmetler" class="btn">Hizmetler</a>
 			<a href="whatsapp://send?phone=905426873959" target="_blank" class="btn">Randevu Al</a>
 			<a href="/iletisim" class="btn">İletişim</a>
