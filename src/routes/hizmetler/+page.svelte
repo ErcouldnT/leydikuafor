@@ -1,7 +1,5 @@
 <script>
-	import hizmetler from '$lib/hizmetler.js';
-
-	// console.log(hizmetler);
+	import hizmetler from '$lib/hizmetler';
 </script>
 
 <main>
@@ -18,8 +16,8 @@
 					</div>
 					<div class="p-5 border rounded-xl m-2 lg:mx-20">
 						{#each hizmet.fiyatlar as hizmet}
-							<div class="grid grid-cols-2 gap-10">
-								<div>{hizmet.ad}</div>
+							<div class="grid grid-cols-3 gap-10">
+								<div class="col-span-2">{hizmet.ad}</div>
 								<div>{hizmet.fiyat} ₺</div>
 							</div>
 						{/each}

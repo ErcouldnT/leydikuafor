@@ -3,8 +3,11 @@
 </script>
 
 <svelte:head>
-	<title>Leydi Kuaför | Özel İlgiyi Hak Ediyorsunuz</title>
-	<meta name="description" content="Leydi Kuaför | Özel İlgiyi Hak Ediyorsunuz" />
+	<title>Giresun Leydi Kuaför | Özel İlgiyi Hak Ediyorsunuz</title>
+	<meta
+		name="description"
+		content="Giresun/Merkez Suat Akgün Sokak'ta bulunan yeni yerimizde 32 yıllık tecrübemizle siz değerli müşterilerimize Giresun'un en iyi kuaförü Leydi Kuaför'de hizmet vermekten mutluluk duyarız."
+	/>
 </svelte:head>
 
 <header class="p-10">
@@ -13,7 +16,7 @@
 			<div>
 				<!-- lg:-ml-40 -->
 				<a href="/" class="flex flex-col gap-2 lg:-ml-40">
-					<div class="caption text-center text-6xl">Kuaför Leydi</div>
+					<div class="caption text-center text-6xl">Leydi Kuaför</div>
 					<div class="slogan text-center text-xl">Özel İlgiyi Hak Ediyorsunuz</div>
 				</a>
 			</div>

@@ -9,8 +9,8 @@
 		<a href="mailto:kazim@leydikuafor.com">kazim@leydikuafor.com</a>
 		<div>Adres</div>
 		<div>
-			Şeyh Keramettin Mah. <br />Suat Akgün Sokak <br />No: 27 Giresun/Merkez <br />Giresun Leydi
-			Kuaför
+			Şeyh Keramettin Mah. <br />Suat Akgün Sokak <br />No: 27 <br />Giresun/Merkez <br />Giresun
+			Leydi Kuaför
 		</div>
 	</div>
 </div>
