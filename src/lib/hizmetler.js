@@ -7,83 +7,83 @@ export default [
 		fiyatlar: [
 			{
 				ad: 'Fön',
-				fiyat: 70
+				fiyat: 80
 			},
 			{
 				ad: 'Kesim',
-				fiyat: 100
+				fiyat: 150
 			},
 			{
 				ad: 'Topuz',
-				fiyat: 150
-			},
-			{
-				ad: 'Tesettür Tasarımı',
-				fiyat: 150
-			},
-			{
-				ad: 'Maşa',
-				fiyat: 130
-			},
-			{
-				ad: 'Örgü',
-				fiyat: 100
-			},
-			{
-				ad: 'Dip Boya',
 				fiyat: 200
 			},
 			{
-				ad: 'Boya Değişim',
-				fiyat: 800
+				ad: 'Tesettür Tasarımı',
+				fiyat: 200
 			},
 			{
-				ad: 'Düz Boya',
-				fiyat: 300
-			},
-			{
-				ad: 'Röfle',
-				fiyat: 800
-			},
-			{
-				ad: 'Renk Kırma',
-				fiyat: 400
-			},
-			{
-				ad: 'Cila',
+				ad: 'Maşa',
 				fiyat: 180
 			},
 			{
+				ad: 'Örgü',
+				fiyat: 150
+			},
+			{
+				ad: 'Dip Boya',
+				fiyat: 300
+			},
+			{
+				ad: 'Boya Değişim',
+				fiyat: 1000
+			},
+			{
+				ad: 'Düz Boya',
+				fiyat: 400
+			},
+			{
+				ad: 'Röfle',
+				fiyat: 1000
+			},
+			{
+				ad: 'Renk Kırma',
+				fiyat: 600
+			},
+			{
+				ad: 'Cila',
+				fiyat: 230
+			},
+			{
 				ad: 'Balyaj Paketi',
-				fiyat: 50
+				fiyat: 80
 			},
 			{
 				ad: 'Dip Açma',
-				fiyat: 600
+				fiyat: 800
 			},
 			{
 				ad: 'Babylights',
-				fiyat: 800
+				fiyat: 1000
 			},
 			{
 				ad: 'Ombre',
-				fiyat: 800
+				fiyat: 1200
 			},
 			{
 				ad: 'Sombre',
-				fiyat: 800
+				fiyat: 1000
 			},
 			{
 				ad: 'Keratin Düzleştirme',
-				fiyat: 600
+				fiyat: 800
 			},
 			{
 				ad: 'Perma',
-				fiyat: 600
+				fiyat: 800
 			},
 			{
-				ad: 'Boncuk Kaynak (150 adet)',
-				fiyat: 2250
+				ad: 'Boncuk Kaynak (200 adet)',
+				fiyat: 4000
 			},
 			{
 				ad: 'Gelin Saç-Makyaj',
@@ -95,11 +95,11 @@ export default [
 			},
 			{
 				ad: 'Kına Saç-Makyaj',
-				fiyat: 1300
+				fiyat: 1500
 			},
 			{
 				ad: 'Nişan Saç-Makyaj',
-				fiyat: 1000
+				fiyat: 1400
 			}
 		]
 	},
@@ -110,15 +110,15 @@ export default [
 		fiyatlar: [
 			{
 				ad: 'Manikür',
-				fiyat: 100
-			},
-			{
-				ad: 'Pedikür',
 				fiyat: 150
 			},
 			{
+				ad: 'Pedikür',
+				fiyat: 200
+			},
+			{
 				ad: 'Kaş Alma',
-				fiyat: 40
+				fiyat: 50
 			},
 			{
 				ad: 'Bıyık (İp-Ağda)',
@@ -130,11 +130,11 @@ export default [
 			},
 			{
 				ad: 'Günlük Makyaj',
-				fiyat: 100
+				fiyat: 150
 			},
 			{
 				ad: 'Gece Makyajı',
-				fiyat: 150
+				fiyat: 200
 			},
 			{
 				ad: 'Takma Kirpik',
@@ -142,7 +142,7 @@ export default [
 			},
 			{
 				ad: 'Porselen Makyaj',
-				fiyat: 350
+				fiyat: 450
 			}
 		]
 	},
@@ -153,27 +153,27 @@ export default [
 		fiyatlar: [
 			{
 				ad: 'Koltukaltı',
-				fiyat: 60
+				fiyat: 80
 			},
 			{
 				ad: 'Kol',
-				fiyat: 80
-			},
-			{
-				ad: 'Yarım Bacak',
-				fiyat: 80
-			},
-			{
-				ad: 'Bütün Bacak',
-				fiyat: 150
-			},
-			{
-				ad: 'Bikini Bölgesi',
 				fiyat: 100
 			},
 			{
+				ad: 'Yarım Bacak',
+				fiyat: 100
+			},
+			{
+				ad: 'Bütün Bacak',
+				fiyat: 200
+			},
+			{
+				ad: 'Bikini Bölgesi',
+				fiyat: 150
+			},
+			{
 				ad: 'Tüm Vücut',
-				fiyat: 400
+				fiyat: 600
 			}
 		]
 	}
