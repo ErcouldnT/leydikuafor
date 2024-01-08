@@ -6,100 +6,92 @@ export default [
 		açıklama: '*Fiyatlar saçın boyuna ve rengine göre değişim gösterebilir.',
 		fiyatlar: [
 			{
-				ad: 'Fön',
-				fiyat: 80
+				ad: 'Saç Kesimi',
+				fiyat: 300
 			},
 			{
-				ad: 'Kesim',
+				ad: 'Saç Yıkama',
+				fiyat: 100
+			},
+			{
+				ad: 'Fön Çekme',
 				fiyat: 150
 			},
 			{
 				ad: 'Topuz',
-				fiyat: 200
-			},
-			{
-				ad: 'Tesettür Tasarımı',
-				fiyat: 200
-			},
-			{
-				ad: 'Maşa',
-				fiyat: 180
-			},
-			{
-				ad: 'Örgü',
-				fiyat: 150
-			},
-			{
-				ad: 'Dip Boya',
-				fiyat: 300
-			},
-			{
-				ad: 'Boya Değişim',
-				fiyat: 1000
-			},
-			{
-				ad: 'Düz Boya',
 				fiyat: 400
 			},
 			{
-				ad: 'Röfle',
-				fiyat: 1000
+				ad: 'Tesettür',
+				fiyat: 400
 			},
 			{
-				ad: 'Renk Kırma',
+				ad: 'Maşa',
+				fiyat: 300
+			},
+			{
+				ad: 'Örgü',
+				fiyat: 200
+			},
+			{
+				ad: 'Dip Boya',
 				fiyat: 600
 			},
 			{
-				ad: 'Cila',
-				fiyat: 230
+				ad: 'Açma Boya (Bütün)',
+				fiyat: 1600
 			},
 			{
-				ad: 'Balyaj Paketi',
-				fiyat: 80
+				ad: 'Saç Boyama (Bütün)',
+				fiyat: 800
+			},
+			{
+				ad: 'Röfle',
+				fiyat: 2200
+			},
+			{
+				ad: 'Renk Kırma',
+				fiyat: 1400
+			},
+			{
+				ad: 'Cila',
+				fiyat: 300
 			},
 			{
 				ad: 'Dip Açma',
-				fiyat: 800
-			},
-			{
-				ad: 'Babylights',
-				fiyat: 1000
-			},
-			{
-				ad: 'Ombre',
 				fiyat: 1200
 			},
 			{
-				ad: 'Sombre',
-				fiyat: 1000
-			},
-			{
-				ad: 'Keratin Düzleştirme',
-				fiyat: 800
-			},
-			{
-				ad: 'Perma',
-				fiyat: 800
-			},
-			{
-				ad: 'Boncuk Kaynak (200 adet)',
-				fiyat: 4000
-			},
-			{
-				ad: 'Gelin Saç-Makyaj',
+				ad: 'Omre',
 				fiyat: 2000
 			},
 			{
-				ad: 'Tesettür Gelin Saç-Makyaj',
-				fiyat: 2000
+				ad: 'Somre',
+				fiyat: 1800
 			},
 			{
-				ad: 'Kına Saç-Makyaj',
+				ad: 'Keratin Düzleştirici',
 				fiyat: 1500
 			},
 			{
-				ad: 'Nişan Saç-Makyaj',
-				fiyat: 1400
+				ad: 'Perma',
+				fiyat: 1200
+			},
+			{
+				ad: 'Gelin Saçı Makyaj',
+				fiyat: 3500
+			},
+			{
+				ad: 'Gelin Saçı Tesettür Makyaj',
+				fiyat: 3500
+			},
+			{
+				ad: 'Kına Saçı Makyaj',
+				fiyat: 1800
+			},
+			{
+				ad: 'Nişan Saçı Makyaj',
+				fiyat: 1800
 			}
 		]
 	},
@@ -110,39 +102,27 @@ export default [
 		fiyatlar: [
 			{
 				ad: 'Manikür',
-				fiyat: 150
+				fiyat: 250
 			},
 			{
 				ad: 'Pedikür',
-				fiyat: 200
+				fiyat: 300
 			},
 			{
-				ad: 'Kaş Alma',
-				fiyat: 50
-			},
-			{
-				ad: 'Bıyık (İp-Ağda)',
-				fiyat: 20
-			},
-			{
-				ad: 'Kaş-Bıyık',
-				fiyat: 50
+				ad: 'Kaş Bıyık Alma',
+				fiyat: 150
 			},
 			{
 				ad: 'Günlük Makyaj',
-				fiyat: 150
-			},
-			{
-				ad: 'Gece Makyajı',
-				fiyat: 200
+				fiyat: 400
 			},
 			{
 				ad: 'Takma Kirpik',
-				fiyat: 150
+				fiyat: 200
 			},
 			{
 				ad: 'Porselen Makyaj',
-				fiyat: 450
+				fiyat: 700
 			}
 		]
 	},
@@ -151,29 +131,29 @@ export default [
 		foto: '/images/orgu.jpg',
 		fotoYön: 'sol',
 		fiyatlar: [
+			// {
+			// 	ad: 'Koltukaltı',
+			// 	fiyat: 80
+			// },
+			// {
+			// 	ad: 'Kol',
+			// 	fiyat: 100
+			// },
+			// {
+			// 	ad: 'Yarım Bacak',
+			// 	fiyat: 100
+			// },
+			// {
+			// 	ad: 'Bütün Bacak',
+			// 	fiyat: 200
+			// },
+			// {
+			// 	ad: 'Bikini Bölgesi',
+			// 	fiyat: 150
+			// },
 			{
-				ad: 'Koltukaltı',
-				fiyat: 80
-			},
-			{
-				ad: 'Kol',
-				fiyat: 100
-			},
-			{
-				ad: 'Yarım Bacak',
-				fiyat: 100
-			},
-			{
-				ad: 'Bütün Bacak',
-				fiyat: 200
-			},
-			{
-				ad: 'Bikini Bölgesi',
-				fiyat: 150
-			},
-			{
-				ad: 'Tüm Vücut',
-				fiyat: 600
+				ad: 'Tüm Vücut Ağda',
+				fiyat: 1000
 			}
 		]
 	}
