@@ -1,5 +1,5 @@
 <script>
-	import gelin2 from '$lib/assets/gelin2.jpg?enhanced';
+	import gelin2 from '$lib/assets/gelin2.jpg';
 </script>
 
 <main>
@@ -26,7 +26,7 @@
 			</div>
 		</div>
 		<div class="lg:m-auto lg:order-last order-first my-5">
-			<enhanced:img class="lg:rounded-xl lg:max-w-lg" src={gelin2} alt="gelin2" />
+			<img class="lg:rounded-xl lg:max-w-lg" src={gelin2} alt="gelin2" />
 		</div>
 	</div>
 </main>

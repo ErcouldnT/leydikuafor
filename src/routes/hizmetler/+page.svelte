@@ -1,9 +1,9 @@
 <script>
 	import hizmetler from '$lib/hizmetler';
 
-	import gelin from '$lib/assets/gelin.jpg?enhanced';
-	import tesettur from '$lib/assets/tesettur.jpg?enhanced';
-	import orgu from '$lib/assets/orgu.jpg?enhanced';
+	import gelin from '$lib/assets/gelin.jpg';
+	import tesettur from '$lib/assets/tesettur.jpg';
+	import orgu from '$lib/assets/orgu.jpg';
 
 	let enhancedImages = [gelin, tesettur, orgu];
 
@@ -18,7 +18,7 @@
 		{#each hizmetler as hizmet}
 			<div class="grid lg:grid-cols-2 m-auto items-center gap-5">
 				<div class="lg:px-20 {hizmet.fotoYön === 'sağ' && 'lg:order-last'} order-first">
-					<enhanced:img
+					<img
 						class="lg:rounded-xl lg:max-w-lg"
 						src={hizmet.foto}
 						loading="lazy"

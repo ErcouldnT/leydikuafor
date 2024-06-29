@@ -1,8 +1,8 @@
 <script>
-	import dukkan from '$lib/assets/dukkan.jpg?enhanced';
-	import dukkan2 from '$lib/assets/dukkan2.jpg?enhanced';
-	import dukkan3 from '$lib/assets/dukkan3.jpg?enhanced';
-	import dukkan4 from '$lib/assets/dukkan4.jpg?enhanced';
+	import dukkan from '$lib/assets/dukkan.jpg';
+	import dukkan2 from '$lib/assets/dukkan2.jpg';
+	import dukkan3 from '$lib/assets/dukkan3.jpg';
+	import dukkan4 from '$lib/assets/dukkan4.jpg';
 </script>
 
 <div class="lg:p-10 py-5 flex flex-col justify-center items-center">
@@ -23,25 +23,25 @@
 </div>
 
 <main class="grid lg:grid-cols-4 lg:gap-1 gap-4">
-	<enhanced:img
+	<img
 		class="h-full w-full aspect-auto hover:opacity-70"
 		src={dukkan}
 		loading="lazy"
 		alt="dukkan"
 	/>
-	<enhanced:img
+	<img
 		class="h-full w-full aspect-auto hover:opacity-70"
 		src={dukkan2}
 		loading="lazy"
 		alt="dukkan2"
 	/>
-	<enhanced:img
+	<img
 		class="h-full w-full aspect-auto hover:opacity-70"
 		src={dukkan3}
 		loading="lazy"
 		alt="dukkan3"
 	/>
-	<enhanced:img
+	<img
 		class="h-full w-full aspect-auto hover:opacity-70"
 		src={dukkan4}
 		loading="lazy"
