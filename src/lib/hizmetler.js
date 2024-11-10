@@ -62,11 +62,11 @@ export default [
 				fiyat: 1200
 			},
 			{
-				ad: 'Omre',
-				fiyat: 2000
+				ad: 'Ombre',
+				fiyat: 3500
 			},
 			{
-				ad: 'Somre',
+				ad: 'Sombre',
 				fiyat: 1800
 			},
 			{
