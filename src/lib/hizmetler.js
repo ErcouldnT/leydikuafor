@@ -7,19 +7,19 @@ export default [
 		fiyatlar: [
 			{
 				ad: 'Saç Kesimi',
-				fiyat: 450
+				fiyat: 600
 			},
 			{
 				ad: 'Saç Yıkama',
-				fiyat: 200
-			},
-			{
-				ad: 'Fön Çekme',
 				fiyat: 300
 			},
 			{
+				ad: 'Fön Çekme',
+				fiyat: 400
+			},
+			{
 				ad: 'Topuz',
-				fiyat: 750
+				fiyat: 800
 			},
 			{
 				ad: 'Tesettür',
@@ -27,15 +27,15 @@ export default [
 			},
 			{
 				ad: 'Maşa',
-				fiyat: 600
+				fiyat: 800
 			},
 			{
 				ad: 'Örgü',
-				fiyat: 400
+				fiyat: 600
 			},
 			{
 				ad: 'Dip Boya',
-				fiyat: 800
+				fiyat: 1000
 			},
 			{
 				ad: 'Açma Boya (Bütün)',
@@ -43,15 +43,15 @@ export default [
 			},
 			{
 				ad: 'Saç Boyama (Bütün)',
-				fiyat: 1000
+				fiyat: 1300
 			},
 			{
 				ad: 'Röfle',
-				fiyat: 3500
+				fiyat: 4500
 			},
 			{
 				ad: 'Renk Kırma',
-				fiyat: 2000
+				fiyat: 3000
 			},
 			{
 				ad: 'Cila',
@@ -63,15 +63,15 @@ export default [
 			},
 			{
 				ad: 'Ombre',
-				fiyat: 4000
+				fiyat: 4500
 			},
 			{
 				ad: 'Sombre',
-				fiyat: 3500
+				fiyat: 4500
 			},
 			{
 				ad: 'Keratin Düzleştirici',
-				fiyat: 2000
+				fiyat: 3600
 			},
 			{
 				ad: 'Brezilya Fönü',
@@ -79,7 +79,7 @@ export default [
 			},
 			{
 				ad: 'Perma',
-				fiyat: 2500
+				fiyat: 3500
 			},
 			{
 				ad: 'Gelin Saçı Makyaj',
@@ -118,7 +118,7 @@ export default [
 			},
 			{
 				ad: 'Günlük Makyaj',
-				fiyat: 600
+				fiyat: 800
 			},
 			{
 				ad: 'Takma Kirpik',
@@ -126,7 +126,7 @@ export default [
 			},
 			{
 				ad: 'Porselen Makyaj',
-				fiyat: 1500
+				fiyat: 2500
 			}
 		]
 	},
@@ -137,11 +137,11 @@ export default [
 		fiyatlar: [
 			{
 				ad: 'Tüm Vücut Ağda',
-				fiyat: 1250
+				fiyat: 1600
 			},
 			{
 				ad: 'Yüz Ağda',
-				fiyat: 250
+				fiyat: 350
 			},
 			{
 				ad: 'Koltuk Altı Ağda',
