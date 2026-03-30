@@ -1,38 +1,46 @@
-# create-svelte
+# Leydi Kuaför Web Application
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This is the official corporate website for Leydi Kuaför, located in Giresun, Turkey. The project is built using modern web development technologies to ensure high performance, SEO optimization, and a seamless user experience.
 
-## Creating a project
+## Tech Stack
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **[Svelte 5](https://svelte.dev/)** & **[SvelteKit 2](https://kit.svelte.dev/)**
+- **[Vite 5](https://vitejs.dev/)**
+- **[TailwindCSS](https://tailwindcss.com/)** & **[daisyUI 4](https://daisyui.com/)**
+- **[@sveltejs/enhanced-img](https://kit.svelte.dev/docs/images)** for automatic optimal image processing
+- **[Lucide Svelte](https://lucide.dev/)** for modern lightweight vector icons
+- Code formatting and linting managed via **[@antfu/eslint-config](https://github.com/antfu/eslint-config)**
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Up and Running
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+To spin up the development environment locally, verify you have Node.js installed, then run:
 
 ```bash
+# Install the necessary dependencies
+npm install
+
+# Start the development server
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+The application will be available at standard localhost ports (usually `http://localhost:5173`).
 
-To create a production version of your app:
+## Building for Production
+
+To build the application for production deployment:
 
 ```bash
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+You can preview the production build before shipping using:
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+```bash
+npm run preview
+```
+
+## License
+
+**Proprietary and Confidential.**
+
+All rights reserved. The source code of this project may not be copied, distributed, modified, or used without express written permission from the owner.

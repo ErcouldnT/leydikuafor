@@ -1,45 +1,45 @@
-<script>
-	import hizmetler from '$lib/hizmetler';
+<script lang='ts'>
+	import gelin from '$lib/assets/gelin.jpg?enhanced'
 
-	import gelin from '$lib/assets/gelin.jpg';
-	import tesettur from '$lib/assets/tesettur.jpg';
-	import orgu from '$lib/assets/orgu.jpg';
+	import orgu from '$lib/assets/orgu.jpg?enhanced'
+	import tesettur from '$lib/assets/tesettur.jpg?enhanced'
+	import hizmetler from '$lib/hizmetler'
 
-	let enhancedImages = [gelin, tesettur, orgu];
+	const enhancedImages = [gelin, tesettur, orgu]
 
 	for (let i = 0; i < hizmetler.length; i++) {
-		const hizmet = hizmetler[i];
-		hizmet.foto = enhancedImages[i];
+		const hizmet: any = hizmetler[i]
+		hizmet.foto = enhancedImages[i]
 	}
 </script>
 
 <main>
-	<div class="grid grid-cols-1 gap-10 lg:p-10">
+	<div class='grid grid-cols-1 gap-10 lg:p-10'>
 		{#each hizmetler as hizmet}
-			<div class="grid lg:grid-cols-2 m-auto items-center gap-5">
+			<div class='grid lg:grid-cols-2 m-auto items-center gap-5'>
 				<div class="lg:px-20 {hizmet.fotoYön === 'sağ' && 'lg:order-last'} order-first">
-					<img
-						class="lg:rounded-xl lg:max-w-lg"
+					<enhanced:img
+						class='lg:rounded-xl lg:max-w-lg'
 						src={hizmet.foto}
-						loading="lazy"
-						alt="Foto"
+						loading='lazy'
+						alt='Foto'
 					/>
 				</div>
-				<div class="m-auto">
-					<div class="mb-5 flex flex-col justify-center items-center">
-						<div class="uppercase font-bold text-xl">{hizmet.kategori}</div>
-						<p class="text-sm">Fiyat Listesi</p>
+				<div class='m-auto'>
+					<div class='mb-5 flex flex-col justify-center items-center'>
+						<div class='uppercase font-bold text-xl'>{hizmet.kategori}</div>
+						<p class='text-sm'>Fiyat Listesi</p>
 					</div>
-					<div class="p-5 border rounded-xl m-2 lg:mx-20">
-						{#each hizmet.fiyatlar as hizmet}
-							<div class="grid grid-cols-3 gap-10">
-								<div class="col-span-2">{hizmet.ad}</div>
-								<div>{hizmet.fiyat} ₺</div>
+					<div class='p-5 border rounded-xl m-2 lg:mx-20'>
+						{#each hizmet.fiyatlar as fiyat}
+							<div class='grid grid-cols-3 gap-10'>
+								<div class='col-span-2'>{fiyat.ad}</div>
+								<div>{fiyat.fiyat} ₺</div>
 							</div>
 						{/each}
 					</div>
 					{#if hizmet.açıklama}
-						<div class="text-center p-5 italic text-sm">{hizmet.açıklama}</div>
+						<div class='text-center p-5 italic text-sm'>{hizmet.açıklama}</div>
 					{/if}
 				</div>
 			</div>

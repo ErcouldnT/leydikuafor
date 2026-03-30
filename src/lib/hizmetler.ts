@@ -1,4 +1,4 @@
-export default [
+const hizmetler: any[] = [
 	{
 		kategori: 'Saç İşlemleri',
 		foto: '/images/gelin.jpg',
@@ -7,83 +7,83 @@ export default [
 		fiyatlar: [
 			{
 				ad: 'Saç Kesimi',
-				fiyat: 600
+				fiyat: 600,
 			},
 			{
 				ad: 'Saç Yıkama',
-				fiyat: 300
+				fiyat: 300,
 			},
 			{
 				ad: 'Fön Çekme',
-				fiyat: 400
+				fiyat: 400,
 			},
 			{
 				ad: 'Topuz',
-				fiyat: 800
+				fiyat: 800,
 			},
 			{
 				ad: 'Tesettür',
-				fiyat: 800
+				fiyat: 800,
 			},
 			{
 				ad: 'Maşa',
-				fiyat: 800
+				fiyat: 800,
 			},
 			{
 				ad: 'Örgü',
-				fiyat: 600
+				fiyat: 600,
 			},
 			{
 				ad: 'Dip Boya',
-				fiyat: 1000
+				fiyat: 1000,
 			},
 			{
 				ad: 'Açma Boya (Bütün)',
-				fiyat: 4500
+				fiyat: 4500,
 			},
 			{
 				ad: 'Saç Boyama (Bütün)',
-				fiyat: 1300
+				fiyat: 1300,
 			},
 			{
 				ad: 'Röfle',
-				fiyat: 4500
+				fiyat: 4500,
 			},
 			{
 				ad: 'Renk Kırma',
-				fiyat: 3000
+				fiyat: 3000,
 			},
 			{
 				ad: 'Cila',
-				fiyat: 600
+				fiyat: 600,
 			},
 			{
 				ad: 'Dip Açma',
-				fiyat: 3500
+				fiyat: 3500,
 			},
 			{
 				ad: 'Ombre',
-				fiyat: 4500
+				fiyat: 4500,
 			},
 			{
 				ad: 'Sombre',
-				fiyat: 4500
+				fiyat: 4500,
 			},
 			{
 				ad: 'Keratin Düzleştirici',
-				fiyat: 3600
+				fiyat: 3600,
 			},
 			{
 				ad: 'Brezilya Fönü',
-				fiyat: 3500
+				fiyat: 3500,
 			},
 			{
 				ad: 'Perma',
-				fiyat: 3500
+				fiyat: 3500,
 			},
 			{
 				ad: 'Gelin Saçı Makyaj',
-				fiyat: 10000
+				fiyat: 10000,
 			},
 			// {
 			// 	ad: 'Gelin Saçı Tesettür Makyaj',
@@ -91,13 +91,13 @@ export default [
 			// },
 			{
 				ad: 'Kına Saçı Makyaj',
-				fiyat: 7000
+				fiyat: 7000,
 			},
 			{
 				ad: 'Nişan Saçı Makyaj',
-				fiyat: 7000
-			}
-		]
+				fiyat: 7000,
+			},
+		],
 	},
 	{
 		kategori: 'Manikür-Kaş-Makyaj',
@@ -106,29 +106,29 @@ export default [
 		fiyatlar: [
 			{
 				ad: 'Manikür',
-				fiyat: 350
+				fiyat: 350,
 			},
 			{
 				ad: 'Pedikür',
-				fiyat: 500
+				fiyat: 500,
 			},
 			{
 				ad: 'Kaş Bıyık Alma',
-				fiyat: 200
+				fiyat: 200,
 			},
 			{
 				ad: 'Günlük Makyaj',
-				fiyat: 800
+				fiyat: 800,
 			},
 			{
 				ad: 'Takma Kirpik',
-				fiyat: 300
+				fiyat: 300,
 			},
 			{
 				ad: 'Porselen Makyaj',
-				fiyat: 2500
-			}
-		]
+				fiyat: 2500,
+			},
+		],
 	},
 	{
 		kategori: 'Ağda',
@@ -137,34 +137,38 @@ export default [
 		fiyatlar: [
 			{
 				ad: 'Tüm Vücut Ağda',
-				fiyat: 1600
+				fiyat: 1600,
 			},
 			{
 				ad: 'Yüz Ağda',
-				fiyat: 350
+				fiyat: 350,
 			},
 			{
 				ad: 'Koltuk Altı Ağda',
-				fiyat: 200
+				fiyat: 200,
 			},
 			{
 				ad: 'Yarım Kol Ağda',
-				fiyat: 200
+				fiyat: 200,
 			},
 			{
 				ad: 'Yarım Bacak Ağda',
-				fiyat: 250
+				fiyat: 250,
 			},
 			{
 				ad: 'Bütün Kol Ağda',
-				fiyat: 250
-			},{
-				ad: 'Bütün Bacak Ağda',
-				fiyat: 500
-			},{
-				ad: 'Bikini Bölgesi Ağda',
-				fiyat: 350
+				fiyat: 250,
 			},
-		]
-	}
-];
+			{
+				ad: 'Bütün Bacak Ağda',
+				fiyat: 500,
+			},
+			{
+				ad: 'Bikini Bölgesi Ağda',
+				fiyat: 350,
+			},
+		],
+	},
+]
+
+export default hizmetler
