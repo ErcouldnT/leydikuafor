@@ -1,9 +1,10 @@
-import { fileURLToPath } from 'node:url'
 import { resolve } from 'node:path'
+import process from 'node:process'
+import { fileURLToPath } from 'node:url'
 import { db, sqlite } from './client.js'
-import { categories, services, type NewCategory, type NewService } from './schema.js'
+import { categories, type NewCategory, type NewService, services } from './schema.js'
 
-type SeedFiyat = { ad: string, fiyat: number }
+interface SeedFiyat { ad: string, fiyat: number }
 type SeedKategori = Omit<NewCategory, 'id' | 'createdAt' | 'updatedAt'> & {
 	fiyatlar: SeedFiyat[]
 }
@@ -90,7 +91,8 @@ export function seed(): { categoriesInserted: number, servicesInserted: number }
 			const { fiyatlar, ...rest } = cat
 			const inserted = tx.insert(categories).values(rest).returning({ id: categories.id }).all()
 			const first = inserted[0]
-			if (!first) throw new Error('Kategori eklenemedi')
+			if (!first)
+				throw new Error('Kategori eklenemedi')
 			const categoryId = first.id
 
 			const rows: NewService[] = fiyatlar.map((f, idx) => ({
@@ -114,6 +116,6 @@ const invokedDirectly = process.argv[1] !== undefined
 
 if (invokedDirectly) {
 	const result = seed()
-	console.log('Seed tamamlandı:', result)
+	console.warn('Seed tamamlandı:', result)
 	sqlite.close()
 }

@@ -1,6 +1,7 @@
-import { migrate } from 'drizzle-orm/better-sqlite3/migrator'
-import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
+import process from 'node:process'
+import { fileURLToPath } from 'node:url'
+import { migrate } from 'drizzle-orm/better-sqlite3/migrator'
 import { db, sqlite } from './client.js'
 
 const here = dirname(fileURLToPath(import.meta.url))
@@ -15,6 +16,6 @@ const invokedDirectly = process.argv[1] !== undefined
 
 if (invokedDirectly) {
 	runMigrations()
-	console.log('Migrations uygulandı.')
+	console.warn('Migrations uygulandı.')
 	sqlite.close()
 }

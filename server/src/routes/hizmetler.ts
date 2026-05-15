@@ -3,8 +3,8 @@ import { Router } from 'express'
 import { db } from '../db/client.js'
 import { categories, services } from '../db/schema.js'
 
-type Fiyat = { ad: string, fiyat: number }
-type HizmetDTO = {
+interface Fiyat { ad: string, fiyat: number }
+interface HizmetDTO {
 	kategori: string
 	foto: string
 	fotoYön: string

@@ -1,11 +1,11 @@
-import 'dotenv/config'
+import process from 'node:process'
 import cors from 'cors'
 import express, { type Express, type Request, type Response } from 'express'
 import helmet from 'helmet'
-import { env } from './env.js'
+import { sqlite } from './db/client.js'
 import { runMigrations } from './db/migrate.js'
 import { seed } from './db/seed.js'
-import { sqlite } from './db/client.js'
+import { env } from './env.js'
 import { requireAuth } from './middleware/auth.js'
 import { errorHandler, notFoundHandler } from './middleware/error.js'
 import { categoriesRouter } from './routes/categories.js'
@@ -18,7 +18,7 @@ function createApp(): Express {
 	app.use(helmet())
 	app.use(
 		cors({
-			origin: env.CORS_ORIGIN === '*' ? true : env.CORS_ORIGIN.split(',').map((o) => o.trim()),
+			origin: env.CORS_ORIGIN === '*' ? true : env.CORS_ORIGIN.split(',').map(o => o.trim()),
 			credentials: false,
 		}),
 	)
@@ -42,16 +42,16 @@ function bootstrap(): void {
 	runMigrations()
 	const seedResult = seed()
 	if (seedResult.categoriesInserted > 0) {
-		console.log(`[seed] ${seedResult.categoriesInserted} kategori, ${seedResult.servicesInserted} servis eklendi`)
+		console.warn(`[seed] ${seedResult.categoriesInserted} kategori, ${seedResult.servicesInserted} servis eklendi`)
 	}
 
 	const app = createApp()
 	const server = app.listen(env.PORT, () => {
-		console.log(`[api] http://0.0.0.0:${env.PORT} (${env.NODE_ENV})`)
+		console.warn(`[api] http://0.0.0.0:${env.PORT} (${env.NODE_ENV})`)
 	})
 
 	const shutdown = (signal: string): void => {
-		console.log(`[api] ${signal} alındı, kapatılıyor...`)
+		console.warn(`[api] ${signal} alındı, kapatılıyor...`)
 		server.close(() => {
 			sqlite.close()
 			process.exit(0)
