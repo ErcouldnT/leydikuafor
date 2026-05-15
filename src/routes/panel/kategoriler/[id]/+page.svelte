@@ -29,7 +29,7 @@
 		</form>
 	</header>
 
-	<div class='card bg-base-200 shadow'>
+	<!-- <div class='card bg-base-200 shadow'>
 		<div class='card-body'>
 			<h2 class='card-title text-base'>Kategori bilgileri</h2>
 
@@ -74,7 +74,7 @@
 				</div>
 			</form>
 		</div>
-	</div>
+	</div> -->
 
 	<div class='card bg-base-200 shadow overflow-hidden'>
 		<div class='flex items-center justify-between px-5 py-4 border-b border-base-300'>
@@ -120,42 +120,35 @@
 
 		<ul class='divide-y divide-base-300'>
 			{#each data.services as svc}
-				<li class='px-5 py-3'>
+				<li class='px-5 py-3 flex flex-col sm:flex-row sm:items-center gap-2'>
 					<form
 						method='POST'
 						action='?/updateService'
-						use:enhance
-						class='grid grid-cols-1 sm:grid-cols-[1fr_120px_80px_auto_auto] gap-3 items-center'
+						use:enhance={() => async ({ update }) => update({ reset: false })}
+						class='flex-1 grid grid-cols-1 sm:grid-cols-[1fr_120px_80px_auto] gap-3 items-center'
 					>
 						<input type='hidden' name='id' value={svc.id} />
 						<input name='ad' required value={svc.ad} class='input input-bordered input-sm w-full' />
 						<input name='fiyat' type='number' min='0' required value={svc.fiyat} class='input input-bordered input-sm w-full' />
 						<input name='sira' type='number' min='0' value={svc.sira} class='input input-bordered input-sm w-full' />
-						<button type='submit' class='btn btn-outline btn-xs'>Güncelle</button>
+						<button type='submit' class='btn btn-outline btn-xs'>Kaydet</button>
 					</form>
-					<form method='POST' action='?/deleteService' use:enhance class='mt-2 sm:hidden'>
+					<form method='POST' action='?/deleteService' use:enhance>
 						<input type='hidden' name='id' value={svc.id} />
 						<button
 							type='submit'
-							class='btn btn-error btn-xs w-full'
+							aria-label='Sil'
+							class='btn btn-ghost btn-xs text-error w-full sm:w-auto'
 							on:click={(e) => {
 								// eslint-disable-next-line no-alert
 								if (!confirm(`"${svc.ad}" silinsin mi?`))
 									e.preventDefault()
 							}}
-						>Sil</button>
-					</form>
-					<form method='POST' action='?/deleteService' use:enhance class='hidden sm:block -mt-9'>
-						<input type='hidden' name='id' value={svc.id} />
-						<button
-							type='submit'
-							class='btn btn-error btn-xs'
-							on:click={(e) => {
-								// eslint-disable-next-line no-alert
-								if (!confirm(`"${svc.ad}" silinsin mi?`))
-									e.preventDefault()
-							}}
-						>Sil</button>
+						>
+							<svg xmlns='http://www.w3.org/2000/svg' class='h-4 w-4' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+								<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16' />
+							</svg>
+						</button>
 					</form>
 				</li>
 			{:else}

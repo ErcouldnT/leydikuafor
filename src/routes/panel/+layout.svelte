@@ -1,6 +1,5 @@
 <script lang='ts'>
 	import type { LayoutData } from './$types'
-	import { enhance } from '$app/forms'
 	import { page } from '$app/stores'
 
 	export let data: LayoutData
@@ -10,7 +9,7 @@
 
 	const navItems: { href: string, label: string }[] = [
 		{ href: '/panel', label: 'Genel Bakış' },
-		{ href: '/panel/kategoriler', label: 'Kategoriler' },
+	// { href: '/panel/kategoriler', label: 'Kategoriler' },
 	]
 
 	function isActive(href: string): boolean {
@@ -70,7 +69,7 @@
 				</ul>
 
 				<div class='p-3 border-t border-base-300'>
-					<form method='POST' action='/panel/logout' use:enhance>
+					<form method='POST' action='/panel/logout'>
 						<button type='submit' class='btn btn-ghost btn-sm w-full justify-start'>
 							Çıkış yap
 						</button>

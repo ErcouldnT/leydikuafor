@@ -1,7 +1,13 @@
 <script lang='ts'>
 	import type { PageData } from './$types'
+	import { formatDistanceToNow } from 'date-fns'
+	import { tr } from 'date-fns/locale'
 
 	export let data: PageData
+
+	function timeAgo(date: string | Date): string {
+		return formatDistanceToNow(new Date(date), { addSuffix: true, locale: tr })
+	}
 </script>
 
 <div class='space-y-6'>
@@ -39,7 +45,7 @@
 								{cat.kategori}
 							</a>
 							<p class='text-xs text-base-content/50 mt-0.5 truncate'>
-								/{cat.slug} · son güncelleme {cat.updatedAt}
+								/{cat.slug} · {timeAgo(cat.updatedAt)}
 							</p>
 						</div>
 						<div class='badge badge-neutral shrink-0'>{cat.serviceCount} hizmet</div>

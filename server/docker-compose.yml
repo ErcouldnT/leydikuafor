@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     environment:
       NODE_ENV: production
-      PORT: 3000
+      # PORT: 3000
       DATABASE_URL: file:/data/leydi.db
       ADMIN_PASSWORD: ${ADMIN_PASSWORD}
       CORS_ORIGIN: ${CORS_ORIGIN:-*}
