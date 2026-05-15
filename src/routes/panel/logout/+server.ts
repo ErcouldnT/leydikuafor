@@ -1,6 +1,6 @@
-import { redirect } from '@sveltejs/kit'
-import { COOKIE_NAME } from '$lib/server/auth'
 import type { RequestHandler } from './$types'
+import { COOKIE_NAME } from '$lib/server/auth'
+import { redirect } from '@sveltejs/kit'
 
 export const POST: RequestHandler = ({ cookies }) => {
 	cookies.delete(COOKIE_NAME, { path: '/' })

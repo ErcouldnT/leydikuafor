@@ -1,5 +1,5 @@
-import { redirect } from '@sveltejs/kit'
 import type { LayoutServerLoad } from './$types'
+import { redirect } from '@sveltejs/kit'
 
 export const prerender = false
 export const ssr = true

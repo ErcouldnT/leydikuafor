@@ -1,19 +1,20 @@
-import { error, fail, redirect } from '@sveltejs/kit'
+import type { Actions, PageServerLoad } from './$types'
 import {
-	createService,
 	deleteCategory as apiDeleteCategory,
+	type CategoryInput,
+	createService,
 	deleteService,
 	getCategory,
 	getCategoryServices,
 	updateCategory,
 	updateService,
-	type CategoryInput,
 } from '$lib/server/api'
-import type { Actions, PageServerLoad } from './$types'
+import { error, fail, redirect } from '@sveltejs/kit'
 
 function parseId(raw: string): number {
 	const n = Number(raw)
-	if (!Number.isInteger(n) || n <= 0) throw error(400, 'Geçersiz id')
+	if (!Number.isInteger(n) || n <= 0)
+		throw error(400, 'Geçersiz id')
 	return n
 }
 
@@ -30,7 +31,8 @@ export const load: PageServerLoad = async ({ params, fetch }) => {
 			getCategoryServices(fetch, id),
 		])
 		return { category, services }
-	} catch (err) {
+	}
+	catch (err) {
 		const msg = err instanceof Error ? err.message : 'Yüklenemedi'
 		throw error(404, msg)
 	}
@@ -51,11 +53,13 @@ export const actions: Actions = {
 			aciklama: aciklamaRaw === '' ? null : aciklamaRaw,
 			sira: Number.isFinite(sira) ? sira : 0,
 		}
-		if (fotoYon) body.fotoYon = fotoYon
+		if (fotoYon)
+			body.fotoYon = fotoYon
 
 		try {
 			await updateCategory(fetch, id, body)
-		} catch (err) {
+		}
+		catch (err) {
 			return fail(400, {
 				updateCategory: { ok: false as const, message: err instanceof Error ? err.message : 'Hata' },
 			})
@@ -76,7 +80,8 @@ export const actions: Actions = {
 
 		try {
 			await createService(fetch, { categoryId, ad, fiyat, sira: Number.isFinite(sira) ? sira : 0 })
-		} catch (err) {
+		}
+		catch (err) {
 			return fail(400, {
 				addService: { ok: false as const, message: err instanceof Error ? err.message : 'Hata' },
 			})
@@ -95,7 +100,8 @@ export const actions: Actions = {
 		}
 		try {
 			await updateService(fetch, id, { ad, fiyat, sira: Number.isFinite(sira) ? sira : 0 })
-		} catch (err) {
+		}
+		catch (err) {
 			return fail(400, {
 				updateService: { ok: false as const, message: err instanceof Error ? err.message : 'Hata' },
 			})
@@ -111,7 +117,8 @@ export const actions: Actions = {
 		}
 		try {
 			await deleteService(fetch, id)
-		} catch (err) {
+		}
+		catch (err) {
 			return fail(400, {
 				deleteService: { ok: false as const, message: err instanceof Error ? err.message : 'Hata' },
 			})
@@ -123,7 +130,8 @@ export const actions: Actions = {
 		const id = parseId(params.id)
 		try {
 			await apiDeleteCategory(fetch, id)
-		} catch (err) {
+		}
+		catch (err) {
 			return fail(400, { deleteCategory: { message: err instanceof Error ? err.message : 'Hata' } })
 		}
 		throw redirect(303, '/panel/kategoriler')

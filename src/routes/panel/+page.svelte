@@ -4,46 +4,48 @@
 	export let data: PageData
 </script>
 
-<div class='max-w-5xl mx-auto space-y-6'>
+<div class='space-y-6'>
 	<header>
-		<h1 class='text-2xl lg:text-3xl font-semibold tracking-tight text-zinc-900'>Genel Bakış</h1>
-		<p class='text-sm text-zinc-500 mt-1'>Hizmetlerinizin özet durumu</p>
+		<h1 class='text-2xl lg:text-3xl font-semibold'>Genel Bakış</h1>
+		<p class='text-base-content/60 text-sm mt-1'>Hizmetlerinizin özet durumu</p>
 	</header>
 
 	{#if data.error}
-		<div class='p-4 rounded-xl border border-rose-200 bg-rose-50 text-rose-800 text-sm'>
-			Backend ile bağlantı kurulamadı: {data.error}
+		<div role='alert' class='alert alert-error'>
+			<span>Backend ile bağlantı kurulamadı: {data.error}</span>
 		</div>
 	{:else}
-		<div class='grid grid-cols-1 sm:grid-cols-2 gap-4'>
-			<div class='p-5 bg-white border border-zinc-200 rounded-2xl'>
-				<p class='text-sm text-zinc-500'>Kategori</p>
-				<p class='text-3xl font-semibold text-zinc-900 mt-1'>{data.stats.length}</p>
+		<div class='stats stats-vertical sm:stats-horizontal shadow w-full bg-base-200'>
+			<div class='stat'>
+				<div class='stat-title'>Kategori</div>
+				<div class='stat-value'>{data.stats.length}</div>
 			</div>
-			<div class='p-5 bg-white border border-zinc-200 rounded-2xl'>
-				<p class='text-sm text-zinc-500'>Toplam Hizmet</p>
-				<p class='text-3xl font-semibold text-zinc-900 mt-1'>{data.totalServices}</p>
+			<div class='stat'>
+				<div class='stat-title'>Toplam Hizmet</div>
+				<div class='stat-value'>{data.totalServices}</div>
 			</div>
 		</div>
 
-		<div class='bg-white border border-zinc-200 rounded-2xl overflow-hidden'>
-			<div class='px-5 py-4 border-b border-zinc-200 flex items-center justify-between'>
-				<h2 class='font-medium text-zinc-900'>Kategoriler</h2>
-				<a href='/panel/kategoriler' class='text-sm font-medium text-zinc-700 hover:text-zinc-900'>Tümünü yönet →</a>
+		<div class='card bg-base-200 shadow overflow-hidden'>
+			<div class='flex items-center justify-between px-5 py-4 border-b border-base-300'>
+				<h2 class='font-medium'>Kategoriler</h2>
+				<a href='/panel/kategoriler' class='btn btn-ghost btn-sm'>Tümünü yönet →</a>
 			</div>
-			<ul class='divide-y divide-zinc-200'>
+			<ul class='divide-y divide-base-300'>
 				{#each data.stats as cat}
 					<li class='px-5 py-4 flex items-center justify-between gap-4'>
 						<div class='min-w-0'>
-							<a href='/panel/kategoriler/{cat.id}' class='font-medium text-zinc-900 hover:underline truncate block'>{cat.kategori}</a>
-							<p class='text-xs text-zinc-500 mt-0.5 truncate'>/{cat.slug} · son güncelleme {cat.updatedAt}</p>
+							<a href='/panel/kategoriler/{cat.id}' class='font-medium hover:underline truncate block'>
+								{cat.kategori}
+							</a>
+							<p class='text-xs text-base-content/50 mt-0.5 truncate'>
+								/{cat.slug} · son güncelleme {cat.updatedAt}
+							</p>
 						</div>
-						<span class='shrink-0 inline-flex items-center px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-700 text-xs font-medium'>
-							{cat.serviceCount} hizmet
-						</span>
+						<div class='badge badge-neutral shrink-0'>{cat.serviceCount} hizmet</div>
 					</li>
 				{:else}
-					<li class='px-5 py-8 text-center text-sm text-zinc-500'>Henüz kategori yok.</li>
+					<li class='px-5 py-8 text-center text-sm text-base-content/50'>Henüz kategori yok.</li>
 				{/each}
 			</ul>
 		</div>

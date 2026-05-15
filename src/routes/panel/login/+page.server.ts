@@ -1,6 +1,7 @@
-import { fail, redirect } from '@sveltejs/kit'
-import { COOKIE_MAX_AGE, COOKIE_NAME, checkPassword, makeSessionToken } from '$lib/server/auth'
 import type { Actions } from './$types'
+import process from 'node:process'
+import { checkPassword, COOKIE_MAX_AGE, COOKIE_NAME, makeSessionToken } from '$lib/server/auth'
+import { fail, redirect } from '@sveltejs/kit'
 
 export const prerender = false
 

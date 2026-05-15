@@ -1,5 +1,5 @@
-import { env } from '$env/dynamic/private'
 import type { Category, Hizmet, Service } from '$lib/types'
+import { env } from '$env/dynamic/private'
 
 const DEFAULT_TIMEOUT_MS = 4000
 
@@ -7,13 +7,15 @@ type FetchFn = typeof fetch
 
 function baseUrl(): string {
 	const url = env.API_URL
-	if (!url) throw new Error('API_URL env tanımlı değil')
+	if (!url)
+		throw new Error('API_URL env tanımlı değil')
 	return url.replace(/\/+$/, '')
 }
 
 function authHeaders(): Record<string, string> {
 	const pw = env.ADMIN_PASSWORD
-	if (!pw) throw new Error('ADMIN_PASSWORD env tanımlı değil')
+	if (!pw)
+		throw new Error('ADMIN_PASSWORD env tanımlı değil')
 	return { authorization: `Bearer ${pw}` }
 }
 
@@ -52,7 +54,8 @@ async function request<T>(
 			return undefined as T
 		}
 		return (await res.json()) as T
-	} finally {
+	}
+	finally {
 		clearTimeout(timer)
 	}
 }
@@ -73,7 +76,7 @@ export function getCategoryServices(fetchFn: FetchFn, id: number): Promise<Servi
 	return request<Service[]>(fetchFn, `/api/categories/${id}/services`, { headers: authHeaders() })
 }
 
-export type CategoryInput = {
+export interface CategoryInput {
 	slug: string
 	kategori: string
 	foto: string
@@ -109,7 +112,7 @@ export function deleteCategory(fetchFn: FetchFn, id: number): Promise<void> {
 	})
 }
 
-export type ServiceInput = {
+export interface ServiceInput {
 	categoryId: number
 	ad: string
 	fiyat: number

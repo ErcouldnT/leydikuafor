@@ -1,6 +1,6 @@
-import { getCategoryServices, listCategories } from '$lib/server/api'
 import type { Category } from '$lib/types'
 import type { PageServerLoad } from './$types'
+import { getCategoryServices, listCategories } from '$lib/server/api'
 
 type CategoryStat = Category & { serviceCount: number }
 
@@ -15,7 +15,8 @@ export const load: PageServerLoad = async ({ fetch }) => {
 		)
 		const totalServices = stats.reduce((acc, c) => acc + c.serviceCount, 0)
 		return { stats, totalServices, error: null as string | null }
-	} catch (err) {
+	}
+	catch (err) {
 		const message = err instanceof Error ? err.message : 'Bilinmeyen hata'
 		return { stats: [] as CategoryStat[], totalServices: 0, error: message }
 	}

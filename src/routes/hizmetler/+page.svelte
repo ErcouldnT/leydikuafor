@@ -1,9 +1,9 @@
 <script lang='ts'>
+	import type { PageData } from './$types'
 	import gelin from '$lib/assets/gelin.jpg?enhanced'
 	import orgu from '$lib/assets/orgu.jpg?enhanced'
 	import tesettur from '$lib/assets/tesettur.jpg?enhanced'
 	import Spinner from '$lib/components/Spinner.svelte'
-	import type { PageData } from './$types'
 
 	export let data: PageData
 
@@ -33,7 +33,7 @@
 			{#each result.data as hizmet}
 				{@const enhanced = enhancedByPath[hizmet.foto]}
 				<div class='grid lg:grid-cols-2 m-auto items-center gap-5'>
-					<div class='lg:px-20 {hizmet.fotoYön === "sağ" ? "lg:order-last" : ""} order-first'>
+					<div class='lg:px-20 {hizmet.fotoYön === 'sağ' ? 'lg:order-last' : ''} order-first'>
 						{#if enhanced}
 							<enhanced:img
 								class='lg:rounded-xl lg:max-w-lg'

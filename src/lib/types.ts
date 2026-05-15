@@ -1,9 +1,9 @@
-export type Fiyat = {
+export interface Fiyat {
 	ad: string
 	fiyat: number
 }
 
-export type Hizmet = {
+export interface Hizmet {
 	kategori: string
 	foto: string
 	fotoYön: string
@@ -15,7 +15,7 @@ export type HizmetlerResult =
 	| { data: Hizmet[], fallback: false }
 	| { data: Hizmet[], fallback: true }
 
-export type Category = {
+export interface Category {
 	id: number
 	slug: string
 	kategori: string
@@ -27,7 +27,7 @@ export type Category = {
 	updatedAt: string
 }
 
-export type Service = {
+export interface Service {
 	id: number
 	categoryId: number
 	ad: string

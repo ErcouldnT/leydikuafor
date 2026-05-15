@@ -1,17 +1,18 @@
-import { fail, redirect } from '@sveltejs/kit'
+import type { Actions, PageServerLoad } from './$types'
 import {
+	type CategoryInput,
 	createCategory,
 	deleteCategory,
 	listCategories,
-	type CategoryInput,
 } from '$lib/server/api'
-import type { Actions, PageServerLoad } from './$types'
+import { fail, redirect } from '@sveltejs/kit'
 
 export const load: PageServerLoad = async ({ fetch }) => {
 	try {
 		const categories = await listCategories(fetch)
 		return { categories, error: null as string | null }
-	} catch (err) {
+	}
+	catch (err) {
 		const message = err instanceof Error ? err.message : 'Bilinmeyen hata'
 		return { categories: [], error: message }
 	}
@@ -50,7 +51,8 @@ export const actions: Actions = {
 
 		try {
 			await createCategory(fetch, body)
-		} catch (err) {
+		}
+		catch (err) {
 			return fail(400, {
 				create: { message: err instanceof Error ? err.message : 'Hata', values: { slug, kategori, foto } },
 			})
@@ -67,7 +69,8 @@ export const actions: Actions = {
 		}
 		try {
 			await deleteCategory(fetch, id)
-		} catch (err) {
+		}
+		catch (err) {
 			return fail(400, { delete: { message: err instanceof Error ? err.message : 'Silme başarısız' } })
 		}
 		throw redirect(303, '/panel/kategoriler')
