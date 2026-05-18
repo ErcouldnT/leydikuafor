@@ -9,9 +9,8 @@ import {
 	updateCategory,
 	updateService,
 } from '$lib/server/api'
+import { optimizeAndSaveImage } from '$lib/server/image'
 import { error, fail, redirect } from '@sveltejs/kit'
-import fs from 'node:fs/promises'
-import path from 'node:path'
 
 function parseId(raw: string): number {
 	const n = Number(raw)
@@ -57,14 +56,7 @@ export const actions: Actions = {
 
 		if (fotoFile && fotoFile.size > 0 && fotoFile.name) {
 			try {
-				const ext = path.extname(fotoFile.name) || '.jpg'
-				const fileName = `${Date.now()}-${Math.round(Math.random() * 1e9)}${ext}`
-				const uploadDir = 'static/uploads'
-				await fs.mkdir(uploadDir, { recursive: true })
-				const filePath = path.join(uploadDir, fileName)
-				const arrayBuffer = await fotoFile.arrayBuffer()
-				await fs.writeFile(filePath, Buffer.from(arrayBuffer))
-				finalFoto = `/uploads/${fileName}`
+				finalFoto = await optimizeAndSaveImage(fotoFile)
 			}
 			catch (err) {
 				// Hata durumunda mevcut fotoğrafla devam et
