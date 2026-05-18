@@ -1,6 +1,7 @@
 <script lang='ts'>
 	import type { ActionData, PageData } from './$types'
 	import { enhance } from '$app/forms'
+	import { ArrowLeft, Trash2, AlertCircle, CheckCircle2, Image as ImageIcon, Scissors, Plus } from '@lucide/svelte'
 
 	export let data: PageData
 	export let form: ActionData
@@ -8,10 +9,8 @@
 
 <div class='space-y-6'>
 	<nav class='text-sm text-base-content/60'>
-		<a href='/panel/kategoriler' class='hover:text-base-content inline-flex items-center gap-1'>
-			<svg xmlns='http://www.w3.org/2000/svg' class='h-4 w-4' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-				<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M15 19l-7-7 7-7' />
-			</svg>
+		<a href='/panel/kategoriler' class='hover:text-primary transition-colors inline-flex items-center gap-1'>
+			<ArrowLeft size={16} />
 			Kategoriler
 		</a>
 	</nav>
@@ -31,9 +30,7 @@
 						e.preventDefault()
 				}}
 			>
-				<svg xmlns='http://www.w3.org/2000/svg' class='h-4 w-4' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-					<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16' />
-				</svg>
+				<Trash2 size={16} />
 				Kategoriyi sil
 			</button>
 		</form>
@@ -46,16 +43,12 @@
 
 			{#if form?.updateCategory?.message}
 				<div role='alert' class='alert alert-error'>
-					<svg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5 shrink-0' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-						<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z' />
-					</svg>
+					<AlertCircle size={20} class='shrink-0' />
 					<span>{form.updateCategory.message}</span>
 				</div>
 			{:else if form?.updateCategory?.ok}
 				<div role='alert' class='alert alert-success'>
-					<svg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5 shrink-0' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-						<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' />
-					</svg>
+					<CheckCircle2 size={20} class='shrink-0' />
 					<span>Kategori güncellendi.</span>
 				</div>
 			{/if}
@@ -86,9 +79,7 @@
 								</div>
 							{:else}
 								<div class='w-24 h-24 rounded-xl bg-base-300 shrink-0 flex items-center justify-center'>
-									<svg xmlns='http://www.w3.org/2000/svg' class='h-8 w-8 text-base-content/30' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-										<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z' />
-									</svg>
+									<ImageIcon size={32} class='text-primary/40' />
 								</div>
 							{/if}
 							<div class='flex-1 w-full'>
@@ -125,10 +116,8 @@
 	<!-- Hizmetler -->
 	<div class='card bg-base-200 shadow overflow-hidden'>
 		<div class='flex items-center justify-between px-5 py-4 border-b border-base-300'>
-			<h2 class='font-medium flex items-center gap-2'>
-				<svg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5 text-base-content/60' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-					<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01' />
-				</svg>
+			<h2 class='font-medium flex items-center gap-2 text-primary'>
+				<Scissors size={20} />
 				Hizmetler ({data.services.length})
 			</h2>
 		</div>
@@ -136,18 +125,14 @@
 		{#if form?.addService?.message}
 			<div class='mx-5 mt-4'>
 				<div role='alert' class='alert alert-error'>
-					<svg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5 shrink-0' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-						<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z' />
-					</svg>
+					<AlertCircle size={20} class='shrink-0' />
 					<span>{form.addService.message}</span>
 				</div>
 			</div>
 		{:else if form?.addService?.ok}
 			<div class='mx-5 mt-4'>
 				<div role='alert' class='alert alert-success'>
-					<svg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5 shrink-0' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-						<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' />
-					</svg>
+					<CheckCircle2 size={20} class='shrink-0' />
 					<span>Hizmet eklendi.</span>
 				</div>
 			</div>
@@ -155,18 +140,14 @@
 		{#if form?.updateService?.message}
 			<div class='mx-5 mt-4'>
 				<div role='alert' class='alert alert-error'>
-					<svg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5 shrink-0' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-						<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z' />
-					</svg>
+					<AlertCircle size={20} class='shrink-0' />
 					<span>{form.updateService.message}</span>
 				</div>
 			</div>
 		{:else if form?.updateService?.ok}
 			<div class='mx-5 mt-4'>
 				<div role='alert' class='alert alert-success'>
-					<svg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5 shrink-0' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-						<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' />
-					</svg>
+					<CheckCircle2 size={20} class='shrink-0' />
 					<span>Hizmet güncellendi.</span>
 				</div>
 			</div>
@@ -174,18 +155,14 @@
 		{#if form?.deleteService?.message}
 			<div class='mx-5 mt-4'>
 				<div role='alert' class='alert alert-error'>
-					<svg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5 shrink-0' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-						<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z' />
-					</svg>
+					<AlertCircle size={20} class='shrink-0' />
 					<span>{form.deleteService.message}</span>
 				</div>
 			</div>
 		{:else if form?.deleteService?.ok}
 			<div class='mx-5 mt-4'>
 				<div role='alert' class='alert alert-success'>
-					<svg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5 shrink-0' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-						<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' />
-					</svg>
+					<CheckCircle2 size={20} class='shrink-0' />
 					<span>Hizmet silindi.</span>
 				</div>
 			</div>
@@ -211,9 +188,7 @@
 				<input id='new-sira' name='sira' type='number' min='0' value='0' class='input input-bordered input-sm w-full' />
 			</div>
 			<button type='submit' class='btn btn-primary btn-sm gap-1'>
-				<svg xmlns='http://www.w3.org/2000/svg' class='h-4 w-4' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-					<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 4v16m8-8H4' />
-				</svg>
+				<Plus size={16} />
 				Ekle
 			</button>
 		</form>
@@ -245,9 +220,7 @@
 									e.preventDefault()
 							}}
 						>
-							<svg xmlns='http://www.w3.org/2000/svg' class='h-4 w-4' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-								<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16' />
-							</svg>
+							<Trash2 size={16} />
 						</button>
 					</form>
 				</li>
