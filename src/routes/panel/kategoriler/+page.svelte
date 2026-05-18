@@ -14,36 +14,56 @@
 			<h1 class='text-2xl lg:text-3xl font-semibold'>Kategoriler</h1>
 			<p class='text-base-content/60 text-sm mt-1'>Hizmet kategorilerini yönet</p>
 		</div>
-		<button type='button' on:click={() => (showCreate = !showCreate)} class='btn btn-primary btn-sm'>
-			{showCreate ? 'Vazgeç' : '+ Yeni kategori'}
+		<button type='button' on:click={() => (showCreate = !showCreate)} class='btn btn-primary btn-sm gap-2'>
+			{#if showCreate}
+				<svg xmlns='http://www.w3.org/2000/svg' class='h-4 w-4' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+					<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 18L18 6M6 6l12 12' />
+				</svg>
+				Vazgeç
+			{:else}
+				<svg xmlns='http://www.w3.org/2000/svg' class='h-4 w-4' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+					<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 4v16m8-8H4' />
+				</svg>
+				Yeni kategori
+			{/if}
 		</button>
 	</header>
 
 	{#if data.error}
-		<div role='alert' class='alert alert-error'><span>{data.error}</span></div>
+		<div role='alert' class='alert alert-error'>
+			<svg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5 shrink-0' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+				<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z' />
+			</svg>
+			<span>{data.error}</span>
+		</div>
 	{/if}
 
 	{#if showCreate}
 		<div class='card bg-base-200 shadow'>
 			<div class='card-body'>
 				<h2 class='card-title text-base'>Yeni Kategori</h2>
-				<form method='POST' action='?/create' use:enhance class='space-y-4'>
+				<form method='POST' action='?/create' use:enhance enctype='multipart/form-data' class='space-y-4'>
 					{#if form?.create?.message}
-						<div role='alert' class='alert alert-error'><span>{form.create.message}</span></div>
+						<div role='alert' class='alert alert-error'>
+							<svg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5 shrink-0' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+								<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z' />
+							</svg>
+							<span>{form.create.message}</span>
+						</div>
 					{/if}
 
 					<div class='grid grid-cols-1 sm:grid-cols-2 gap-4'>
 						<div class='form-control'>
 							<label class='label' for='kategori'><span class='label-text'>Kategori adı</span></label>
-							<input id='kategori' name='kategori' required value={form?.create?.values?.kategori ?? ''} class='input input-bordered w-full' />
+							<input id='kategori' name='kategori' required value={form?.create?.values?.kategori ?? ''} class='input input-bordered w-full' placeholder='Saç İşlemleri' />
 						</div>
 						<div class='form-control'>
 							<label class='label' for='slug'><span class='label-text'>Slug</span></label>
-							<input id='slug' name='slug' required pattern='[a-z0-9-]+' placeholder='ornek-kategori' value={form?.create?.values?.slug ?? ''} class='input input-bordered w-full' />
+							<input id='slug' name='slug' required pattern='[a-z0-9-]+' placeholder='sac-islemleri' value={form?.create?.values?.slug ?? ''} class='input input-bordered w-full' />
 						</div>
 						<div class='form-control'>
-							<label class='label' for='foto'><span class='label-text'>Görsel yolu</span></label>
-							<input id='foto' name='foto' required placeholder='/images/gelin.jpg' value={form?.create?.values?.foto ?? '/images/gelin.jpg'} class='input input-bordered w-full' />
+							<label class='label' for='foto'><span class='label-text'>Kategori Görseli</span></label>
+							<input id='foto' type='file' name='foto' accept='image/*' class='file-input file-input-bordered w-full' />
 						</div>
 						<div class='form-control'>
 							<label class='label' for='fotoYon'><span class='label-text'>Görsel konumu</span></label>
@@ -54,7 +74,7 @@
 						</div>
 						<div class='form-control sm:col-span-2'>
 							<label class='label' for='aciklama'><span class='label-text'>Açıklama (opsiyonel)</span></label>
-							<input id='aciklama' name='aciklama' class='input input-bordered w-full' />
+							<input id='aciklama' name='aciklama' class='input input-bordered w-full' placeholder='Fiyatlar saçın boyuna göre değişebilir...' />
 						</div>
 						<div class='form-control'>
 							<label class='label' for='sira'><span class='label-text'>Sıra</span></label>
@@ -72,17 +92,23 @@
 	{/if}
 
 	{#if form?.delete?.message}
-		<div role='alert' class='alert alert-error'><span>{form.delete.message}</span></div>
+		<div role='alert' class='alert alert-error'>
+			<svg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5 shrink-0' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+				<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z' />
+			</svg>
+			<span>{form.delete.message}</span>
+		</div>
 	{/if}
 
 	<div class='card bg-base-200 shadow overflow-hidden'>
+		<!-- Desktop Table -->
 		<div class='overflow-x-auto hidden md:block'>
 			<table class='table w-full'>
 				<thead>
 					<tr>
+						<th>Görsel</th>
 						<th>Kategori</th>
 						<th>Slug</th>
-						<th>Görsel</th>
 						<th>Konum</th>
 						<th>Sıra</th>
 						<th class='text-right'>İşlem</th>
@@ -90,11 +116,27 @@
 				</thead>
 				<tbody>
 					{#each data.categories as cat}
-						<tr>
+						<tr class='hover'>
+							<td>
+								{#if cat.foto}
+									<div class='avatar'>
+										<div class='w-12 h-12 rounded-lg'>
+											<img src={cat.foto} alt={cat.kategori} />
+										</div>
+									</div>
+								{:else}
+									<div class='w-12 h-12 rounded-lg bg-base-300 flex items-center justify-center'>
+										<svg xmlns='http://www.w3.org/2000/svg' class='h-5 w-5 text-base-content/30' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+											<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z' />
+										</svg>
+									</div>
+								{/if}
+							</td>
 							<td class='font-medium'>{cat.kategori}</td>
-							<td>{cat.slug}</td>
-							<td class='truncate max-w-[200px]'>{cat.foto}</td>
-							<td>{cat.fotoYon}</td>
+							<td><span class='text-base-content/60'>/{cat.slug}</span></td>
+							<td>
+								<span class='badge badge-sm {cat.fotoYon === "sol" ? "badge-info" : "badge-accent"}'>{cat.fotoYon}</span>
+							</td>
 							<td>{cat.sira}</td>
 							<td class='text-right space-x-2 whitespace-nowrap'>
 								<a href='/panel/kategoriler/{cat.id}' class='btn btn-outline btn-xs'>Düzenle</a>
@@ -119,15 +161,24 @@
 			</table>
 		</div>
 
+		<!-- Mobile Cards -->
 		<ul class='md:hidden divide-y divide-base-300'>
 			{#each data.categories as cat}
 				<li class='p-5 space-y-3'>
-					<div class='flex items-start justify-between gap-3'>
-						<div class='min-w-0'>
+					<div class='flex items-center gap-3'>
+						{#if cat.foto}
+							<img src={cat.foto} alt={cat.kategori} class='w-14 h-14 rounded-lg object-cover bg-base-300 shrink-0' />
+						{:else}
+							<div class='w-14 h-14 rounded-lg bg-base-300 shrink-0 flex items-center justify-center'>
+								<svg xmlns='http://www.w3.org/2000/svg' class='h-6 w-6 text-base-content/30' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+									<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z' />
+								</svg>
+							</div>
+						{/if}
+						<div class='flex-1 min-w-0'>
 							<p class='font-medium truncate'>{cat.kategori}</p>
-							<p class='text-xs text-base-content/50 truncate'>{cat.slug} · {cat.fotoYon} · sıra {cat.sira}</p>
+							<p class='text-xs text-base-content/50 truncate'>/{cat.slug} · <span class='badge badge-xs {cat.fotoYon === "sol" ? "badge-info" : "badge-accent"}'>{cat.fotoYon}</span> · sıra {cat.sira}</p>
 						</div>
-						<div class='badge badge-neutral shrink-0 text-xs'>{cat.foto}</div>
 					</div>
 					<div class='flex gap-2'>
 						<a href='/panel/kategoriler/{cat.id}' class='btn btn-outline btn-xs flex-1'>Düzenle</a>

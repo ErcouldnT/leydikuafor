@@ -6,6 +6,8 @@ import {
 	listCategories,
 } from '$lib/server/api'
 import { fail, redirect } from '@sveltejs/kit'
+import fs from 'node:fs/promises'
+import path from 'node:path'
 
 export const load: PageServerLoad = async ({ fetch }) => {
 	try {
@@ -28,22 +30,42 @@ export const actions: Actions = {
 		const fd = await request.formData()
 		const slug = String(fd.get('slug') ?? '').trim()
 		const kategori = String(fd.get('kategori') ?? '').trim()
-		const foto = String(fd.get('foto') ?? '').trim()
 		const fotoYon = parseFotoYon(fd.get('fotoYon'))
 		const aciklamaRaw = String(fd.get('aciklama') ?? '').trim()
 		const siraStr = String(fd.get('sira') ?? '0').trim()
 		const sira = Number(siraStr)
 
-		if (!slug || !kategori || !foto || !fotoYon || Number.isNaN(sira)) {
+		// Validasyon ÖNCE yapılmalı (dosya yüklemeden önce)
+		if (!slug || !kategori || !fotoYon || Number.isNaN(sira)) {
 			return fail(400, {
-				create: { message: 'Zorunlu alanlar eksik veya hatalı', values: { slug, kategori, foto } },
+				create: { message: 'Zorunlu alanlar eksik veya hatalı', values: { slug, kategori, foto: '' } },
 			})
+		}
+
+		// Validasyon geçtikten sonra dosya yükleme
+		const fotoFile = fd.get('foto') as File | null
+		let finalFoto = '/images/gelin.jpg' // Varsayılan değer
+
+		if (fotoFile && fotoFile.size > 0 && fotoFile.name) {
+			try {
+				const ext = path.extname(fotoFile.name) || '.jpg'
+				const fileName = `${Date.now()}-${Math.round(Math.random() * 1e9)}${ext}`
+				const uploadDir = 'static/uploads'
+				await fs.mkdir(uploadDir, { recursive: true })
+				const filePath = path.join(uploadDir, fileName)
+				const arrayBuffer = await fotoFile.arrayBuffer()
+				await fs.writeFile(filePath, Buffer.from(arrayBuffer))
+				finalFoto = `/uploads/${fileName}`
+			}
+			catch (err) {
+				console.error('Fotoğraf yükleme hatası:', err)
+			}
 		}
 
 		const body: CategoryInput = {
 			slug,
 			kategori,
-			foto,
+			foto: finalFoto,
 			fotoYon,
 			aciklama: aciklamaRaw === '' ? null : aciklamaRaw,
 			sira,
@@ -54,7 +76,7 @@ export const actions: Actions = {
 		}
 		catch (err) {
 			return fail(400, {
-				create: { message: err instanceof Error ? err.message : 'Hata', values: { slug, kategori, foto } },
+				create: { message: err instanceof Error ? err.message : 'Hata', values: { slug, kategori, foto: finalFoto } },
 			})
 		}
 

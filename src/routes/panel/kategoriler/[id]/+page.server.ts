@@ -10,6 +10,8 @@ import {
 	updateService,
 } from '$lib/server/api'
 import { error, fail, redirect } from '@sveltejs/kit'
+import fs from 'node:fs/promises'
+import path from 'node:path'
 
 function parseId(raw: string): number {
 	const n = Number(raw)
@@ -46,10 +48,35 @@ export const actions: Actions = {
 		const aciklamaRaw = String(fd.get('aciklama') ?? '').trim()
 		const sira = Number(fd.get('sira') ?? 0)
 
+		// Mevcut fotoğraf yolunu hidden input'tan al
+		const mevcutFoto = String(fd.get('mevcutFoto') ?? '').trim()
+
+		// Yeni dosya yükleme denemesi
+		const fotoFile = fd.get('foto') as File | null
+		let finalFoto = mevcutFoto
+
+		if (fotoFile && fotoFile.size > 0 && fotoFile.name) {
+			try {
+				const ext = path.extname(fotoFile.name) || '.jpg'
+				const fileName = `${Date.now()}-${Math.round(Math.random() * 1e9)}${ext}`
+				const uploadDir = 'static/uploads'
+				await fs.mkdir(uploadDir, { recursive: true })
+				const filePath = path.join(uploadDir, fileName)
+				const arrayBuffer = await fotoFile.arrayBuffer()
+				await fs.writeFile(filePath, Buffer.from(arrayBuffer))
+				finalFoto = `/uploads/${fileName}`
+			}
+			catch (err) {
+				// Hata durumunda mevcut fotoğrafla devam et
+				console.error('Fotoğraf yükleme hatası:', err)
+			}
+		}
+		// Eğer yeni dosya yüklenmemişse, mevcutFoto kullan (zaten finalFoto = mevcutFoto)
+
 		const body: Partial<CategoryInput> = {
 			slug: String(fd.get('slug') ?? '').trim(),
 			kategori: String(fd.get('kategori') ?? '').trim(),
-			foto: String(fd.get('foto') ?? '').trim(),
+			foto: finalFoto,
 			aciklama: aciklamaRaw === '' ? null : aciklamaRaw,
 			sira: Number.isFinite(sira) ? sira : 0,
 		}
