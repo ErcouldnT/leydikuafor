@@ -46,13 +46,9 @@
 					{/if}
 
 					<div class='grid grid-cols-1 sm:grid-cols-2 gap-4'>
-						<div class='form-control'>
+						<div class='form-control sm:col-span-2'>
 							<label class='label' for='kategori'><span class='label-text'>Kategori adı</span></label>
 							<input id='kategori' name='kategori' required value={form?.create?.values?.kategori ?? ''} class='input input-bordered w-full' placeholder='Saç İşlemleri' />
-						</div>
-						<div class='form-control'>
-							<label class='label' for='slug'><span class='label-text'>Slug</span></label>
-							<input id='slug' name='slug' required pattern='[a-z0-9-]+' placeholder='sac-islemleri' value={form?.create?.values?.slug ?? ''} class='input input-bordered w-full' />
 						</div>
 						<div class='form-control'>
 							<label class='label' for='foto'><span class='label-text'>Kategori Görseli</span></label>
@@ -99,7 +95,6 @@
 					<tr>
 						<th>Görsel</th>
 						<th>Kategori</th>
-						<th>Slug</th>
 						<th>Konum</th>
 						<th>Sıra</th>
 						<th class='text-right'>İşlem</th>
@@ -122,7 +117,6 @@
 								{/if}
 							</td>
 							<td class='font-medium'>{cat.kategori}</td>
-							<td><span class='text-base-content/60'>/{cat.slug}</span></td>
 							<td>
 								<span class='badge badge-sm {cat.fotoYon === "sol" ? "badge-info" : "badge-accent"}'>{cat.fotoYon}</span>
 							</td>
@@ -144,7 +138,7 @@
 							</td>
 						</tr>
 					{:else}
-						<tr><td colspan='6' class='text-center text-base-content/50 py-8'>Henüz kategori yok.</td></tr>
+						<tr><td colspan='5' class='text-center text-base-content/50 py-8'>Henüz kategori yok.</td></tr>
 					{/each}
 				</tbody>
 			</table>
@@ -164,7 +158,7 @@
 						{/if}
 						<div class='flex-1 min-w-0'>
 							<p class='font-medium truncate'>{cat.kategori}</p>
-							<p class='text-xs text-base-content/50 truncate'>/{cat.slug} · <span class='badge badge-xs {cat.fotoYon === "sol" ? "badge-info" : "badge-accent"}'>{cat.fotoYon}</span> · sıra {cat.sira}</p>
+							<p class='text-xs text-base-content/50 truncate'><span class='badge badge-xs {cat.fotoYon === "sol" ? "badge-info" : "badge-accent"}'>{cat.fotoYon}</span> · sıra {cat.sira}</p>
 						</div>
 					</div>
 					<div class='flex gap-2'>

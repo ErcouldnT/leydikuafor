@@ -26,10 +26,10 @@
 		},
 	]
 
-	function isActive(href: string): boolean {
+	function isActive(href: string, currentPath: string): boolean {
 		if (href === '/panel')
-			return pathname === '/panel'
-		return pathname === href || pathname.startsWith(`${href}/`)
+			return currentPath === '/panel'
+		return currentPath === href || currentPath.startsWith(`${href}/`)
 	}
 </script>
 
@@ -51,7 +51,7 @@
 					</label>
 				</div>
 				<div class='flex-1'>
-					<a href='/panel' class='btn btn-ghost font-semibold'>Leydi Panel</a>
+					<a href='/panel' class='btn btn-ghost font-semibold' style='color: var(--p) !important;'>Leydi Panel</a>
 				</div>
 			</div>
 
@@ -66,15 +66,15 @@
 			<label for='panel-drawer' aria-label='Menüyü kapat' class='drawer-overlay'></label>
 			<aside class='bg-base-200 border-r border-base-300 w-64 min-h-full flex flex-col'>
 				<div class='px-6 py-5 border-b border-base-300'>
-					<a href='/panel' class='font-semibold text-lg'>Leydi Panel</a>
+					<a href='/panel' class='font-semibold text-lg' style='color: var(--p) !important;'>Leydi Panel</a>
 					<p class='text-base-content/50 text-xs mt-0.5'>Yönetim</p>
 				</div>
 
 				<ul class='menu flex-1 px-3 py-4 gap-1'>
 					{#each navItems as item}
 						<li>
-							<a href={item.href} class={isActive(item.href) ? 'active' : ''}>
-								<svelte:component this={item.icon} size={20} class={isActive(item.href) ? '' : 'text-primary'} />
+							<a href={item.href} class={isActive(item.href, $page.url.pathname) ? 'active' : ''}>
+								<svelte:component this={item.icon} size={20} style='color: var(--p) !important;' />
 								{item.label}
 							</a>
 						</li>
@@ -82,8 +82,8 @@
 				</ul>
 
 				<div class='p-3 border-t border-base-300'>
-					<a href='/' class='btn btn-ghost btn-sm w-full justify-start gap-2 mb-1 hover:text-primary'>
-						<ExternalLink size={16} class='text-primary' />
+					<a href='/hizmetler' class='btn btn-ghost btn-sm w-full justify-start gap-2 mb-1 hover:text-primary'>
+						<ExternalLink size={16} style='color: var(--p) !important;' />
 						Siteyi görüntüle
 					</a>
 					<form method='POST' action='/panel/logout'>

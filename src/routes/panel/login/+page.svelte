@@ -19,7 +19,7 @@
 				<div class='inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-3'>
 					<Lock size={32} class='text-primary' />
 				</div>
-				<h1 class='card-title justify-center text-xl'>Leydi Panel</h1>
+				<h1 class='card-title justify-center text-xl text-primary'>Leydi Panel</h1>
 				<p class='text-base-content/60 text-sm mt-1'>Yönetim paneline giriş</p>
 			</div>
 

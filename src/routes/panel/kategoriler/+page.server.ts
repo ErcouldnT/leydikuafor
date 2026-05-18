@@ -7,6 +7,7 @@ import {
 } from '$lib/server/api'
 import { optimizeAndSaveImage } from '$lib/server/image'
 import { fail, redirect } from '@sveltejs/kit'
+import slugify from 'slugify'
 
 export const load: PageServerLoad = async ({ fetch }) => {
 	try {
@@ -27,15 +28,15 @@ function parseFotoYon(v: FormDataEntryValue | null): 'sol' | 'sağ' | null {
 export const actions: Actions = {
 	create: async ({ request, fetch }) => {
 		const fd = await request.formData()
-		const slug = String(fd.get('slug') ?? '').trim()
 		const kategori = String(fd.get('kategori') ?? '').trim()
+		const slug = slugify(kategori, { lower: true, strict: true, locale: 'tr' })
 		const fotoYon = parseFotoYon(fd.get('fotoYon'))
 		const aciklamaRaw = String(fd.get('aciklama') ?? '').trim()
 		const siraStr = String(fd.get('sira') ?? '0').trim()
 		const sira = Number(siraStr)
 
 		// Validasyon ÖNCE yapılmalı (dosya yüklemeden önce)
-		if (!slug || !kategori || !fotoYon || Number.isNaN(sira)) {
+		if (!kategori || !fotoYon || Number.isNaN(sira)) {
 			return fail(400, {
 				create: { message: 'Zorunlu alanlar eksik veya hatalı', values: { slug, kategori, foto: '' } },
 			})

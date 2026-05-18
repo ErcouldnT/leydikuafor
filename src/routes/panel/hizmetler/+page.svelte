@@ -21,8 +21,8 @@
 		<div class='grid grid-cols-1 sm:grid-cols-2 gap-4'>
 			<div class='card bg-base-200 shadow'>
 				<div class='card-body flex-row items-center gap-4 py-4'>
-					<div class='bg-secondary/10 text-secondary rounded-xl p-3'>
-						<Scissors size={24} />
+					<div class='bg-primary/10 rounded-xl p-3'>
+						<Scissors size={24} style='color: var(--p) !important;' />
 					</div>
 					<div>
 						<p class='text-base-content/60 text-sm'>Toplam Hizmet</p>
@@ -32,8 +32,8 @@
 			</div>
 			<div class='card bg-base-200 shadow'>
 				<div class='card-body flex-row items-center gap-4 py-4'>
-					<div class='bg-primary/10 text-primary rounded-xl p-3'>
-						<Tags size={24} />
+					<div class='bg-primary/10 rounded-xl p-3'>
+						<Tags size={24} style='color: var(--p) !important;' />
 					</div>
 					<div>
 						<p class='text-base-content/60 text-sm'>Kategori Sayısı</p>

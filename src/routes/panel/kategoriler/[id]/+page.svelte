@@ -18,7 +18,6 @@
 	<header class='flex items-start justify-between gap-4 flex-wrap'>
 		<div>
 			<h1 class='text-2xl lg:text-3xl font-semibold'>{data.category.kategori}</h1>
-			<p class='text-base-content/60 text-sm mt-1'>/{data.category.slug}</p>
 		</div>
 		<form method='POST' action='?/deleteCategory' use:enhance>
 			<button
@@ -55,13 +54,9 @@
 
 			<form method='POST' action='?/updateCategory' use:enhance enctype='multipart/form-data' class='space-y-4'>
 				<div class='grid grid-cols-1 sm:grid-cols-2 gap-4'>
-					<div class='form-control'>
+					<div class='form-control sm:col-span-2'>
 						<label class='label' for='kategori'><span class='label-text'>Kategori adı</span></label>
 						<input id='kategori' name='kategori' required value={data.category.kategori} class='input input-bordered w-full' />
-					</div>
-					<div class='form-control'>
-						<label class='label' for='slug'><span class='label-text'>Slug</span></label>
-						<input id='slug' name='slug' required pattern='[a-z0-9-]+' value={data.category.slug} class='input input-bordered w-full' />
 					</div>
 					<div class='form-control sm:col-span-2'>
 						<label class='label' for='foto'><span class='label-text'>Kategori Görseli</span></label>

@@ -26,8 +26,8 @@
 		<div class='grid grid-cols-1 sm:grid-cols-2 gap-4'>
 			<div class='card bg-base-200 shadow'>
 				<div class='card-body flex-row items-center gap-4'>
-					<div class='bg-primary/10 text-primary rounded-xl p-3'>
-						<Tags size={28} />
+					<div class='bg-primary/10 rounded-xl p-3'>
+						<Tags size={28} style='color: var(--p) !important;' />
 					</div>
 					<div>
 						<p class='text-base-content/60 text-sm'>Kategori</p>
@@ -37,8 +37,8 @@
 			</div>
 			<div class='card bg-base-200 shadow'>
 				<div class='card-body flex-row items-center gap-4'>
-					<div class='bg-secondary/10 text-secondary rounded-xl p-3'>
-						<Scissors size={28} />
+					<div class='bg-primary/10 rounded-xl p-3'>
+						<Scissors size={28} style='color: var(--p) !important;' />
 					</div>
 					<div>
 						<p class='text-base-content/60 text-sm'>Toplam Hizmet</p>
@@ -64,7 +64,7 @@
 							/>
 						{:else}
 							<div class='w-10 h-10 rounded-lg bg-base-300 shrink-0 flex items-center justify-center'>
-								<ImageIcon size={20} class='text-primary/40' />
+								<ImageIcon size={20} style='color: var(--p) !important; opacity: 0.4;' />
 							</div>
 						{/if}
 						<div class='flex-1 min-w-0'>
@@ -72,7 +72,7 @@
 								{cat.kategori}
 							</a>
 							<p class='text-xs text-base-content/50 mt-0.5 truncate'>
-								/{cat.slug} · {timeAgo(cat.updatedAt)}
+								{timeAgo(cat.updatedAt)}
 							</p>
 						</div>
 						<div class='badge badge-neutral shrink-0'>{cat.serviceCount} hizmet</div>

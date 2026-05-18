@@ -11,6 +11,7 @@ import {
 } from '$lib/server/api'
 import { optimizeAndSaveImage } from '$lib/server/image'
 import { error, fail, redirect } from '@sveltejs/kit'
+import slugify from 'slugify'
 
 function parseId(raw: string): number {
 	const n = Number(raw)
@@ -65,9 +66,12 @@ export const actions: Actions = {
 		}
 		// Eğer yeni dosya yüklenmemişse, mevcutFoto kullan (zaten finalFoto = mevcutFoto)
 
+		const kategori = String(fd.get('kategori') ?? '').trim()
+		const slug = slugify(kategori, { lower: true, strict: true, locale: 'tr' })
+
 		const body: Partial<CategoryInput> = {
-			slug: String(fd.get('slug') ?? '').trim(),
-			kategori: String(fd.get('kategori') ?? '').trim(),
+			slug,
+			kategori,
 			foto: finalFoto,
 			aciklama: aciklamaRaw === '' ? null : aciklamaRaw,
 			sira: Number.isFinite(sira) ? sira : 0,

@@ -10,7 +10,13 @@ export const load: PageServerLoad = async ({ fetch }) => {
 		const stats: CategoryStat[] = await Promise.all(
 			cats.map(async (c) => {
 				const services = await getCategoryServices(fetch, c.id)
-				return { ...c, serviceCount: services.length }
+				let latestUpdatedAt = c.updatedAt
+				if (services.length > 0) {
+					latestUpdatedAt = services.reduce((latest, s) => {
+						return s.updatedAt > latest ? s.updatedAt : latest
+					}, c.updatedAt)
+				}
+				return { ...c, serviceCount: services.length, updatedAt: latestUpdatedAt }
 			}),
 		)
 		const totalServices = stats.reduce((acc, c) => acc + c.serviceCount, 0)
